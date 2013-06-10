@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styl.css">
+    </head>
+    <body ng-app ng-controller="DameCupra">
+        <div id="cuprik"><i></i></div>
+        <h1><a ng-href="{{link}}" target="_blank">Dáme<span id="domena" ng-bind-template="{{domena}}">Čupra</span>.cz</a></h1>
+        </a>
+        <span id="jidlo"></span>
+        <audio preload loop id="crunch" src="crunch.mp3"></audio>
+        <audio preload id="burp" src="burp.mp3"></audio>
+        <div id="panel">
+            <h2>Právě mě krmí <span id="online" ng-bind-template="{{online}}">hodně</span> lidí</h2>
+            <h2>Co už jsem spapal?</h2>
+            <table>
+                <tr ng-repeat="j in jidlo|orderBy:'pocet':true">
+                    <th ng-bind-template="{{j.jidlo}}"></th>
+                    <td ng-bind-template="{{j.pocet}} krát"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="like">
+            <p>Krmte mě klidně i s kamarády.</p>
+            <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdamecupra.cz%2F&amp;send=false&amp;layout=standard&amp;width=220&amp;show_faces=true&amp;font&amp;colorscheme=dark&amp;action=like&amp;height=80&amp;appId=174093522693852" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:30px;" allowTransparency="true"></iframe>
+        </div>
+        <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="dame.min.js"></script>
+    </body>
+</html>
