@@ -22,13 +22,16 @@ var DameCupra = ['$scope', function ($scope) {
         $scope.$apply(function () {
             var jidlo = v.val();
             var model = [];
+            var vaha = 0;
             for (var j in jidlo) {
                 var index = adresy.indexOf(j);
                 if (index > -1) {
                     model.push({jidlo: hlasky[index], pocet: jidlo[j]});
+                    vaha += vahy[index] * jidlo[j];
                 }
             }
             $scope.jidlo = model;
+            $scope.vaha = vaha;
         });
     };
     all.on('value', updateJidlo);
@@ -40,6 +43,7 @@ var DameCupra = ['$scope', function ($scope) {
     var hlasky = ['Zmrzku', 'Šáňo', 'Sejra', 'Rejži', 'Kuře', 'Kraba', 'Buřtíky', 'Jabko', 'Donut', 'Polívku', 'PárekVRohlíku'];
     var adresy = ['zmrzku', 'sano', 'sejra', 'rejzi', 'kure', 'kraba', 'burtiky', 'jabko', 'donut', 'polivku', 'parekvrohliku'];
     var queries = ['Zmrzlina', 'Sekt', 'Sýr', 'Rýže', 'Kuře', 'Krab', 'Klobása', 'Jablko', 'Donut', 'Polévka', 'Hot Dog'];
+    var vahy = [50, 200, 30, 80, 700, 200, 140, 150, 80, 100, 50];
     var domena = document.getElementById('domena');
     var jidlo = document.getElementById('jidlo');
     var first = true;
