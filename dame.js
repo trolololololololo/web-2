@@ -2,12 +2,12 @@ var crunch = document.getElementById('crunch');
 crunch.volume = .5;
 var burp = document.getElementById('burp');
 burp.volume = .8;
-var onlineRef = new Firebase('https://damecupra.firebaseIO.com/online');
+var onlineRef = new Firebase('https://damecupra.firebaseIO.com/online-v2');
 var connectedRef = new Firebase('https://damecupra.firebaseIO.com/.info/connected');
 connectedRef.on('value', function (snap) {
     if (snap.val() === true) {
-        onlineRef.push(true);
-        onlineRef.onDisconnect().remove();
+        var me = onlineRef.push(true);
+        me.onDisconnect().remove();
     }
 });
 var all = new Firebase('https://damecupra.firebaseIO.com/jidlo');
